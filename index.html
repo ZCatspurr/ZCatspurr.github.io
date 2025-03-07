@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Video Game Log</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container-fluid mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Game Tracker [Free Games Only Currently]</h1>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left Side  -->
+            <div class="col-md-5 mb-4">
+                <div class="game-details-container" id="gameDetails">
+                    <div class="no-game-selected">
+                        <p>Select a game to view details...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="col-md-7">
+                <div class="search-container mb-4">
+                    <input type="text" id="gameTitle" class="form-control mb-3" placeholder="Search games...">
+                    <div id="match-list" class="autocomplete-items"></div>
+                    
+                    <div class="filters-container">
+                        <div class="filter-group">
+                            <button class="btn btn-outline-primary" id="showFilters">
+                                <i class="fas fa-filter"></i> Filters
+                            </button>
+                        </div>
+                        
+                        <div class="filters-panel" id="filtersPanel" style="display: none;">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <select class="form-select" id="platformFilter">
+                                        <option value="">All Platforms</option>
+                                        <option value="pc">PC</option>
+                                        <option value="browser">Browser</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select" id="genreFilter">
+                                        <option value="">All Genres</option>
+                                        <option value="mmorpg">MMORPG</option>
+                                        <option value="shooter">Shooter</option>
+                                        <option value="strategy">Strategy</option>
+                                        <option value="moba">MOBA</option>
+                                        <option value="racing">Racing</option>
+                                        <option value="sports">Sports</option>
+                                        <option value="social">Social</option>
+                                        <option value="sandbox">Sandbox</option>
+                                        <option value="open-world">Open World</option>
+                                        <option value="survival">Survival</option>
+                                        <option value="pvp">PVP</option>
+                                        <option value="pve">PVE</option>
+                                        <option value="pixel">Pixel</option>
+                                        <option value="voxel">Voxel</option>
+                                        <option value="zombie">Zombie</option>
+                                        <option value="turn-based">Turn Based</option>
+                                        <option value="first-person">First Person</option>
+                                        <option value="third-Person">Third Person</option>
+                                        <option value="top-down">Top Down</option>
+                                        <option value="tank">Tank</option>
+                                        <option value="space">Space</option>
+                                        <option value="sailing">Sailing</option>
+                                        <option value="side-scroller">Side Scroller</option>
+                                        <option value="superhero">Superhero</option>
+                                        <option value="permadeath">Permadeath</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select" id="sortFilter">
+                                        <option value="relevance">Relevance</option>
+                                        <option value="popularity">Popularity</option>
+                                        <option value="release-date">Release Date</option>
+                                        <option value="alphabetical">Alphabetical</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="filter-buttons mt-3">
+                                <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                                <button class="btn btn-outline-secondary" id="resetFilters">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="filteredGames" class="filtered-games-container"></div>
+
+                <div class="lists-container">
+                    <div class="status-section mb-4">
+                        <h3 class="status-title wishlist">Wishlist</h3>
+                        <div class="game-list" id="wishlist" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <!-- Games here for HTML -->
+                        </div>
+                    </div>
+
+                    <div class="status-section mb-4">
+                        <h3 class="status-title in-progress">In Progress</h3>
+                        <div class="game-list" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <!-- Games added here -->
+                        </div>
+                    </div>
+
+                    <div class="status-section mb-4">
+                        <h3 class="status-title completed">Completed</h3>
+                        <div class="game-list" id="completed" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <!-- Games  added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!--Bootstrap stuff-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
